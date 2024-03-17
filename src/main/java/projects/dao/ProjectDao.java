@@ -19,7 +19,7 @@ import projects.exception.DbException;
 import provided.util.DaoBase;
 
 
-@SuppressWarnings("unused")
+
 public class ProjectDao extends DaoBase {
 	private static final String CATEGORY_TABLE = "category";
 	private static final String MATERIAL_TABLE = "material";

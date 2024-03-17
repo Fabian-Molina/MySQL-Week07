@@ -18,17 +18,17 @@ public class DbConnection {
 	
 	
 	public static Connection getConnection() {
-		String url = String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s&useSSL=false", HOST, PORT, SCHEMA, USER, PASSWORD);
+		String uri = String.format("jdbc:mysql://%s:%d/%s?user=%s&password=%s&useSSL=false", HOST, PORT, SCHEMA, USER, PASSWORD);
 		
-		System.out.println("Connecting with url=" + url);
+		System.out.println("Connecting with url=" + uri);
 		
 		try {
-			Connection conn = DriverManager.getConnection(url);
-			System.out.println("Successfully obtained connection!");
+			Connection conn = DriverManager.getConnection(uri);
+			System.out.println("Connection to schema " + SCHEMA + " is successful.");
 			return conn;
 		} catch (SQLException e) {
-		  System.out.println("Unable to get connection at " + url);
-		  throw new DbException(e);
+		  System.out.println("Unable to get connection at " + uri);
+		  throw new DbException("Unable to get connection at " + uri);
 		}
 	}
 

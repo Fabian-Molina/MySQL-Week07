@@ -20,6 +20,7 @@ public class Projects {
 			"2) List projects",
 			"3) Select a project"
 );
+	private Project curProject;
 	// @formatter:on
 			
 	
@@ -63,7 +64,6 @@ public class Projects {
 		}
 	}
 	
-	Object curProject = null;
 	
 	private void selectProject() {
 	  listProjects();
@@ -100,16 +100,10 @@ public class Projects {
 		project.setNotes(notes);
 		
 		
-		Project dbProject = projectService(project);
+		Project dbProject = projectService.addProject(project);
 		System.out.println("You have successfully created project: " + dbProject);
 	}
 	
-	
-	private Project projectService(Project projects) {
-		
-		return projects;
-	}
-
 
 	private BigDecimal getDecimalInput(String prompt) {
 		String input = getStringInput(prompt);
